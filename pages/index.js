@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>ui-training</title>
+        <title>Home page</title>
       </Head>
-      <Box>MAIN PAGE</Box>
+      <Box>Home page</Box>
     </>
   )
 }

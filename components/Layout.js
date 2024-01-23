@@ -1,7 +1,5 @@
 import Header from '../components/Header.js';
-import Footer from '../components/Footer.js';
-
-// import { Box } from '@chakra-ui/react';
+// import Footer from '../components/Footer.js';
 
 
 export default function Layout({ children }) {
@@ -9,12 +7,8 @@ export default function Layout({ children }) {
     return <>
         <Header />
         <main>
-            {/* <Box
-                fontSize={textFontSize}
-            > */}
             {children}
-            {/* </Box> */}
         </main>
-        <Footer />
+        {/* <Footer /> */}
     </>
 };
