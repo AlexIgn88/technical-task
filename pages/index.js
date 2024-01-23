@@ -1,30 +1,44 @@
 import Head from 'next/head';
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Text, Grid, GridItem } from '@chakra-ui/react';
 import Image from 'next/image';
-import background from '../public/img/machine.png';
+import backgroundMain from '../public/img/machine.png';
+import backgroundAbout from '../public/img/car_interior.png';
+import backgroundOurFleet from '../public/img/our_fleet.png';
+import arrowLeft from '../public/img/arrow_left.png';
+import arrowRight from '../public/img/arrow_right.png';
+import carsData from '../data/carsData.js';
+import { useState } from 'react';
 
 
 export default function Home() {
+
+  const [currentCarIndex, changeCarDetailsIndex] = useState(0);
+
+  const keyValuePairs = Object.entries(carsData[currentCarIndex]);
+  const flattenedArray = keyValuePairs.flat();
+
+
   return (
     <>
       <Head>
         <title>Home</title>
       </Head>
       <Flex
-        ml={'110px'}
-        mt={'230px'}
-        gap={'130px'}
+        h={'100vh'}
+        ml={'5vw'}
+        mt={'10vw'}
+        gap={'5vw'}
       >
         <Box>
           <Heading
             as={'h1'}
-            fontSize={'73px'}
+            fontSize={'7vmin'}
           >
             Exclusive transport services in Qatar
           </Heading>
           <Text
             mt={'30px'}
-            fontSize={'22.5px'}
+            fontSize={'2vmin'}
           >
             For the modern world, semantic analysis of external counteractions contributes to the preparation and implementation.
           </Text>
@@ -37,16 +51,14 @@ export default function Home() {
             cursor={'pointer'}
           ></Button>
         </Box>
-
         <Box>
           <Image
-            src={background}
-            alt='globe'
+            src={backgroundMain}
+            alt='home page'
             width={944}
             height={469}
             style={{
-              borderRadius: '10px',
-              width: 'auto',
+              width: '45vw',
               height: 'auto',
               objectFit: 'cover',
               objectPosition: 'center',
@@ -54,6 +66,117 @@ export default function Home() {
           />
         </Box>
       </Flex>
+      <Box
+        h={'100vh'}
+        position={'relative'}
+      >
+        <Box
+          position={'absolute'}
+          w={'487px'}
+          h={'345px'}
+          top={'350px'}
+          right={'200px'}
+        >
+          <Heading
+            as={'h1'}
+          >WHO WE ARE
+          </Heading>
+          <Text>
+            For the modern world, semantic analysis of external counteractions contributes
+            to the preparation and implementation of the distribution of internal reserves and resources.
+            But thorough competitor research is gaining popularity among certain segments of the population,
+            and therefore should be associatively distributed across industries. As well as replicated
+            from foreign sources, modern research is declared to violate universal human norms of ethics and morality.
+            Our varied and extensive experience tells us that modern development methodology is critical to the exit of current assets.
+            In particular, the semantic analysis of external counteractions predetermines the high demand
+            for the gradual and consistent development of society.
+          </Text>
+        </Box>
+        <Image
+          src={backgroundAbout}
+          alt='about'
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center',
+          }}
+        />
+      </Box>
+
+
+      <Box
+        h={'100vh'}
+        mt={'100px'}
+        ml={'5vw'}
+      >
+        <Heading
+          as={'h1'}
+          textAlign={'center'}
+        >
+          OUR FLEET
+        </Heading>
+        <Heading
+          mt={'100px'}
+        >
+          {carsData[currentCarIndex].carName}
+        </Heading>
+        <Flex
+          mt={'100px'}
+        >
+          <Grid
+            templateColumns="repeat(2, 1fr)"
+            gap={6}
+          >
+            {flattenedArray.slice(2).map((item, i) => <GridItem key={i}>{item}</GridItem>)}
+          </Grid>
+
+          <Box>
+            <Image
+              src={backgroundOurFleet}
+              alt='our fleet'
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center',
+              }}
+            />
+          </Box>
+        </Flex>
+        <Flex
+          alignItems={'center'}
+        >
+          <Button
+            colorScheme='gray'
+            w={'228px'}
+            h={'62px'}
+            borderRadius={'19px'}
+            cursor={'pointer'}
+          ></Button>
+          <Box
+            flexGrow='1'
+            display={'flex'}
+            justifyContent={'center'}
+            gap={'10vw'}
+          >
+            <Image
+              src={arrowLeft}
+              alt='arrow left'
+              style={{
+                cursor: 'pointer',
+              }}
+            />
+            <Image
+              src={arrowRight}
+              alt='arrow right'
+              style={{
+                cursor: 'pointer',
+              }}
+            />
+          </Box>
+        </Flex>
+      </Box>
     </>
   )
 }

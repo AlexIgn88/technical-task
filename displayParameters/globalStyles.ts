@@ -3,7 +3,7 @@ export const globalStyles = {
         height: '100%',
         backgroundColor: 'black',
         color: 'white',
-        fontFamily: 'sans-serif',
+        fontFamily: 'Montserrat, sans-serif',
         margin: '0px',
     },
     '#__next': {
@@ -13,6 +13,5 @@ export const globalStyles = {
     },
     'main': {
         flexGrow: '1',
-        // marginTop: '70px',
     },
 };
