@@ -9,6 +9,7 @@ export default function Globe() {
             p={'10px'}
             position={'relative'}
             right={'110px'}
+            cursor={'pointer'}
         >
             <Image
                 src={background}

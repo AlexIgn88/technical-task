@@ -29,6 +29,9 @@ export default function Navbar() {
                             className="link"
                             color={'white'}
                             textDecoration={'none'}
+                            _hover={{
+                                textDecoration: 'underline'
+                            }}
                         >
                             {
                                 page.name === 'Accord'
