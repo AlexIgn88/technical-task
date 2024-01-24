@@ -19,7 +19,7 @@ export default function Navbar() {
                 display={'flex'}
                 justifyContent={'center'}
                 alignItems={'center'}
-                gap={'100px'}
+                gap={'5vw'}
             >
                 {pages.map(page =>
                     <ListItem key={page.name}>
