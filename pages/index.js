@@ -67,7 +67,7 @@ export default function Home() {
         </Box>
       </Flex>
       <Box
-        h={'100vh'}
+        h={'110vh'}
         position={'relative'}
       >
         <Box
@@ -76,6 +76,7 @@ export default function Home() {
           h={'345px'}
           top={'350px'}
           right={'200px'}
+          zIndex={'3'}
         >
           <Heading
             as={'h1'}
@@ -102,12 +103,18 @@ export default function Home() {
             objectPosition: 'center',
           }}
         />
+        <Box
+          position={'absolute'}
+          top={'0'}
+          right={'0'}
+          bottom={'0'}
+          width={'70%'}
+          background={'linear-gradient(to left, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%)'}
+        />
       </Box>
-
-
       <Box
         h={'100vh'}
-        mt={'100px'}
+        mt={'80px'}
         ml={'5vw'}
       >
         <Heading
@@ -117,7 +124,7 @@ export default function Home() {
           OUR FLEET
         </Heading>
         <Heading
-          mt={'100px'}
+          mt={'80px'}
         >
           {carsData[currentCarIndex].carName}
         </Heading>
