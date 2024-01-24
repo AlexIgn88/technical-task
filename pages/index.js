@@ -51,7 +51,10 @@ export default function Home() {
             cursor={'pointer'}
           ></Button>
         </Box>
-        <Box>
+
+        <Box
+          position={'relative'}
+        >
           <Image
             src={backgroundMain}
             alt='home page'
@@ -62,9 +65,32 @@ export default function Home() {
               height: 'auto',
               objectFit: 'cover',
               objectPosition: 'center',
+              position: 'relative',
+              zIndex: '3',
             }}
           />
+          {/* <Box
+            position={'absolute'}
+            right={'120px'}
+            bottom={'400px'}
+            w="635px"
+            h="607px"
+            borderRadius="50%"
+            background={'radial-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.12))'}
+          >
+          </Box>
+          <Box
+            position={'absolute'}
+            right={'50px'}
+            bottom={'600px'}
+            w="424px"
+            h="405px"
+            borderRadius="50%"
+            background={'radial-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.12))'}
+          >
+          </Box> */}
         </Box>
+
       </Flex>
       <Box
         h={'110vh'}
