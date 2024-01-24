@@ -4,8 +4,9 @@ import {
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import pages from '../data/pagesData';
-import Image from 'next/image';
-import background from '../public/img/logo_accord.png';
+// import Image from 'next/image';
+// import background from '../public/img/logo_accord.png';
+import LogoAccord from '../components/LogoAccord';
 
 
 export default function Navbar() {
@@ -45,20 +46,3 @@ export default function Navbar() {
     )
 }
 
-function LogoAccord() {
-
-    return (
-        <Image
-            src={background}
-            alt='Accord.LIMO'
-            width={235}
-            height={27}
-            style={{
-                borderRadius: '10px',
-                width: 'auto',
-                height: 'auto',
-                objectFit: 'cover',
-                objectPosition: 'center',
-            }}
-        />)
-}
