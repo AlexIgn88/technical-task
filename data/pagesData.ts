@@ -2,7 +2,7 @@ import { page } from '../datatypes/types';
 
 const pages: page[] = [
   { name: 'Home', src: '/' },
-  { name: 'Accord', src: '/accord' },
+  { name: 'Accord', src: '/' },
   { name: 'Our services', src: '/ourservices' },
 ];
 
