@@ -1,12 +1,13 @@
 import Navbar from '../components/Navbar.js';
 import Globe from '../components/Globe.js';
 import LogoAccord from '../components/LogoAccord';
-import { useBreakpointValue, Button, Box, } from '@chakra-ui/react';
+import { useBreakpointValue, Box, } from '@chakra-ui/react';
+import NavDrawerMenu from '../components/NavDrawerMenu.js';
 
 
 export default function Header() {
 
-    const isDesktop = useBreakpointValue({ base: false, md: true });  // начиная с 768px включается десктопное разрешение экрана
+    const isDesktop = useBreakpointValue({ base: false, md: true });  // выше 768px - десктопное разрешение экрана
 
     return (
         <>
@@ -21,24 +22,22 @@ export default function Header() {
                     marginTop: '50px',
                 }}
             >
-                {/* <Navbar />
-                <Globe /> */}
                 {isDesktop && <Navbar isDesktop={isDesktop} />}
-                {isDesktop && <Globe />}
+                {isDesktop && (
+                    <Box
+                        p={'10px'}
+                        position={'relative'}
+                        cursor={'pointer'}
+                    >
+                        <Globe color={'black'} />
+                    </Box>
+                )}
                 {!isDesktop && (
                     <Box>
                         <LogoAccord isDesktop={isDesktop} />
                     </Box>)}
                 {!isDesktop && (
-                    <Button
-                        colorScheme='gray'
-                        position='absolute'
-                        right='4vw'
-                        width='30px'
-                        height='14px'
-                    >
-                        Gray
-                    </Button>
+                    <NavDrawerMenu />
                 )}
             </header>
         </>
