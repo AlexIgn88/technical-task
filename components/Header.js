@@ -18,11 +18,19 @@ export default function Header() {
                     justifyContent: 'center',
                     alignItems: 'center',
                     position: 'relative',
-                    padding: '10px',
-                    marginTop: '50px',
+                    padding: [isDesktop ? '10px' : '30px'],
+                    marginTop: [isDesktop ? '50px' : '0px'],
                 }}
             >
-                {isDesktop && <Navbar isDesktop={isDesktop} />}
+                {isDesktop && (
+                    <Navbar
+                        flexDirection={'row'}
+                        alignItems={'center'}
+                        isDesktop={isDesktop}
+                        gap={'5vw'}
+                        marginTop={'0px'}
+                    />
+                )}
                 {isDesktop && (
                     <Box
                         p={'10px'}
@@ -33,9 +41,11 @@ export default function Header() {
                     </Box>
                 )}
                 {!isDesktop && (
-                    <Box>
-                        <LogoAccord isDesktop={isDesktop} />
-                    </Box>)}
+                    <LogoAccord
+                        color={'black'}
+                        isDesktop={isDesktop}
+                    />
+                )}
                 {!isDesktop && (
                     <NavDrawerMenu />
                 )}

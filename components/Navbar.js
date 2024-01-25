@@ -1,15 +1,10 @@
-import {
-    UnorderedList, ListItem,
-    Text,
-} from '@chakra-ui/react';
+import { UnorderedList, ListItem, Text, } from '@chakra-ui/react';
 import Link from 'next/link';
 import pages from '../data/pagesData';
-// import Image from 'next/image';
-// import background from '../public/img/logo_accord.png';
 import LogoAccord from '../components/LogoAccord';
 
 
-export default function Navbar({ isDesktop }) {
+export default function Navbar({ flexDirection, alignItems, isDesktop, gap, marginTop }) {
 
     return (
         <nav style={{
@@ -18,9 +13,11 @@ export default function Navbar({ isDesktop }) {
             <UnorderedList
                 listStyleType={'none'}
                 display={'flex'}
+                flexDirection={flexDirection}
                 justifyContent={'center'}
-                alignItems={'center'}
-                gap={'5vw'}
+                alignItems={alignItems}
+                gap={gap}
+                marginTop={marginTop}
             >
                 {pages.map(page =>
                     <ListItem key={page.name}>
@@ -35,7 +32,7 @@ export default function Navbar({ isDesktop }) {
                         >
                             {
                                 page.name === 'Accord'
-                                    ? <LogoAccord isDesktop={isDesktop} />
+                                    ? isDesktop && <LogoAccord color={'black'} isDesktop={isDesktop} />
                                     : page.name
                             }
                         </Text>
@@ -44,4 +41,3 @@ export default function Navbar({ isDesktop }) {
         </nav>
     )
 }
-

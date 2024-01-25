@@ -1,12 +1,13 @@
 import Image from 'next/image';
-import background from '../public/img/logo_accord.png';
+import logoAccordBlack from '../public/img/logo_accord.png';
+import logoAccordWhite from '../public/img/logo_accord_white.png';
 
 
-export default function LogoAccord({ isDesktop }) {
+export default function LogoAccord({ color, isDesktop }) {
 
     return (
         <Image
-            src={background}
+            src={color === 'black' ? logoAccordBlack : logoAccordWhite}
             alt='Accord.LIMO'
             width={235}
             height={27}

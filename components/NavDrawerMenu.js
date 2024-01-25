@@ -1,6 +1,6 @@
 import {
-    Button, Box, useBreakpointValue, useDisclosure,
-    Drawer, DrawerBody, DrawerFooter, DrawerOverlay, DrawerContent, DrawerCloseButton,
+    Box, useDisclosure,
+    Drawer, DrawerHeader, DrawerBody, DrawerFooter, DrawerOverlay, DrawerContent, DrawerCloseButton,
 } from '@chakra-ui/react';
 import { useRef } from 'react';
 import { IconButton } from '@chakra-ui/react';
@@ -8,6 +8,8 @@ import Image from 'next/image';
 import hamburgerButton from '../public/img/hamburger_button.png';
 import navDrawerMenuArrowLeft from '../public/img/NavDrawerMenu_arrow_left.png';
 import Globe from '../components/Globe.js';
+import LogoAccord from '../components/LogoAccord';
+import Navbar from '../components/Navbar.js';
 
 
 export default function NavDrawerMenu() {
@@ -31,7 +33,6 @@ export default function NavDrawerMenu() {
                 _active={{
                     backgroundColor: 'white',
                 }}
-
                 icon={<Image
                     src={hamburgerButton}
                     alt='menu'
@@ -52,15 +53,32 @@ export default function NavDrawerMenu() {
             >
                 <DrawerOverlay />
                 <DrawerContent>
-
+                    <DrawerHeader
+                        backgroundColor={'black'}
+                        color={'white'}
+                        display={'flex'}
+                        flexDirection={'column'}
+                        alignItems={'center'}
+                        pt={'30px'}
+                    >
+                        <LogoAccord
+                            color={'white'}
+                            isDesktop={false}
+                        />
+                    </DrawerHeader>
                     <DrawerBody
                         backgroundColor={'black'}
                         color={'white'}
+                        display={'flex'}
+                        flexDirection={'column'}
                     >
-                        {/* <NavbarListComponent
+                        <Navbar
                             flexDirection={'column'}
-                        /> */}
-                        <div>HERE NAV</div>
+                            alignItems={'flex-start'}
+                            isDesktop={false}
+                            gap={'30px'}
+                            marginTop={'30px'}
+                        />
                     </DrawerBody>
                     <DrawerFooter
                         backgroundColor={'black'}
@@ -88,6 +106,7 @@ export default function NavDrawerMenu() {
                             position={'relative'}
                             bottom={'4px'}
                             left={'180px'}
+                            cursor={'pointer'}
                         >
                             <Globe color={'white'} />
                         </Box>
