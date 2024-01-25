@@ -66,7 +66,7 @@ export default function Home() {
         </Box>
       </Flex>
       <Box
-        h={'110vh'}
+        h={'120vh'}
         position={'relative'}
       >
         <Box
@@ -115,7 +115,7 @@ export default function Home() {
       </Box>
       <Box
         h={'100vh'}
-        mt={'80px'}
+        mt={'50px'}
         ml={'5vw'}
       >
         <Heading
@@ -126,7 +126,7 @@ export default function Home() {
           OUR FLEET
         </Heading>
         <Heading
-          mt={'80px'}
+          mt={'50px'}
           fontSize={'24px'}
         >
           {carsData[currentCarIndex].carName}
