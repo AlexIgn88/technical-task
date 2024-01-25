@@ -1,7 +1,7 @@
 import { Button } from '@chakra-ui/react';
 
 
-export default function SiteButton({ text }) {
+export default function SiteButton({ text, width }) {
     return (
         <Button
             mt={'30px'}
@@ -15,7 +15,7 @@ export default function SiteButton({ text }) {
                 backgroundColor: '#4a4a48',
                 color: 'white',
             }}
-            w={'228px'}
+            w={width}
             h={'62px'}
             borderRadius={'19px'}
             cursor={'pointer'}
