@@ -5,6 +5,7 @@ export default function SiteButton({ text, width }) {
     return (
         <Button
             mt={'30px'}
+            mb={'30px'}
             colorScheme='gray'
             backgroundColor={'black'}
             _hover={{

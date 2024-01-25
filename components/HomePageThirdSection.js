@@ -1,11 +1,10 @@
 import { Box, Flex, Heading, Grid, GridItem, useBreakpointValue } from '@chakra-ui/react';
 import Image from 'next/image';
 import backgroundOurFleet from '../public/img/our_fleet.png';
-import arrowLeft from '../public/img/arrow_left.png';
-import arrowRight from '../public/img/arrow_right.png';
 import carsData from '../data/carsData.js';
 import { useState } from 'react';
 import SiteButton from '../components/SiteButton';
+import ArrowButton from '../components/ArrowButton';
 
 
 export default function HomePageThirdSection() {
@@ -20,28 +19,34 @@ export default function HomePageThirdSection() {
     return (
         <Box
             h={'100vh'}
-            mt={'50px'}
-            ml={'5vw'}
+            ml={'6vw'}
+            mr={'6vw'}
+            mt={isDesktop ? '50px' : '30px'}
         >
             <Heading
                 as={'h1'}
-                fontSize={'40px'}
+                fontSize={isDesktop ? '40px' : '25px'}
                 textAlign={'center'}
             >
                 OUR FLEET
             </Heading>
-            <Heading
-                mt={'50px'}
-                fontSize={'24px'}
-            >
-                {carsData[currentCarIndex].carName}
-            </Heading>
+            {isDesktop && (
+                <Heading
+                    mt={'50px'}
+                    fontSize={'24px'}
+                >
+                    {carsData[currentCarIndex].carName}
+                </Heading>)}
             <Flex
-                mt={'100px'}
+                mt={isDesktop ? '50px' : '20px'}
+                flexDirection={isDesktop ? 'row' : 'column'}
+                alignItems={isDesktop ? 'normal' : 'center'}
             >
                 <Grid
+                    order={isDesktop ? '1' : '3'}
                     templateColumns="repeat(2, 1fr)"
                     alignContent={'space-evenly'}
+                    gap={isDesktop ? '0px' : '20px'}
                 >
                     {flattenedArray.slice(2).map((item, i) =>
                         <GridItem
@@ -52,7 +57,25 @@ export default function HomePageThirdSection() {
                         </GridItem>
                     )}
                 </Grid>
-                <Box>
+                {!isDesktop && (
+                    <Flex
+                        order={'2'}
+                        flexDirection={'row'}
+                        alignItems={'center'}
+                    >
+                        <ArrowButton direction={'Left'} size={isDesktop} />
+                        <Heading
+                            mt={'20px'}
+                            fontSize={'18px'}
+                            mb={'20px'}
+                        >
+                            {carsData[currentCarIndex].carName}
+                        </Heading>
+                        <ArrowButton direction={'right'} size={isDesktop} />
+                    </Flex>)}
+                <Box
+                    order={isDesktop ? '2' : '1'}
+                >
                     <Image
                         src={backgroundOurFleet}
                         alt='our fleet'
@@ -65,32 +88,28 @@ export default function HomePageThirdSection() {
                     />
                 </Box>
             </Flex>
-            <Flex
-                alignItems={'center'}
-            >
-                <SiteButton width={isDesktop ? '228px' : '166px'} />
-                <Box
-                    flexGrow='1'
-                    display={'flex'}
-                    justifyContent={'center'}
-                    gap={'10vw'}
+            {isDesktop
+                ? <Flex
+                    alignItems={'center'}
                 >
-                    <Image
-                        src={arrowLeft}
-                        alt='arrow left'
-                        style={{
-                            cursor: 'pointer',
-                        }}
-                    />
-                    <Image
-                        src={arrowRight}
-                        alt='arrow right'
-                        style={{
-                            cursor: 'pointer',
-                        }}
-                    />
-                </Box>
-            </Flex>
+                    <SiteButton width={isDesktop ? '228px' : '166px'} />
+                    <Box
+                        flexGrow='1'
+                        display={'flex'}
+                        justifyContent={'center'}
+                        gap={'10vw'}
+                    >
+                        <ArrowButton direction={'Left'} size={isDesktop} />
+                        <ArrowButton direction={'right'} size={isDesktop} />
+                    </Box>
+                </Flex>
+                : <Flex
+                    flexDirection={'row'}
+                    justifyContent={'center'}
+                >
+                    <SiteButton width={isDesktop ? '228px' : '166px'} />
+                </Flex>
+            }
         </Box>
     )
 }

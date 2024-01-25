@@ -9,7 +9,7 @@ export default function HomePageSecondSection() {
 
     return (
         <Box
-            h={'120vh'}
+            h={isDesktop ? '120vh' : '135vh'}
             position={'relative'}
         >
             <Box

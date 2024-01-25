@@ -12,7 +12,8 @@ export default function HomePageFirstSection() {
         <Flex
             h={'100vh'}
             ml={'5vw'}
-            mt={'10vw'}
+            mr={isDesktop ? '0vw' : '5vw'}
+            mt={isDesktop ? '10vw' : '5vw'}
             gap={'5vw'}
             flexDirection={isDesktop ? 'row' : 'column'}
             textAlign={isDesktop ? 'none' : 'center'}
@@ -40,7 +41,7 @@ export default function HomePageFirstSection() {
                 >
                     For the modern world, semantic analysis of external counteractions contributes to the preparation and implementation.
                 </Text>
-                <SiteButton width={isDesktop ? '228px' : '166px'}/>
+                <SiteButton width={isDesktop ? '228px' : '166px'} />
             </Box>
             <Box
                 position={'relative'}

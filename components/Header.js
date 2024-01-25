@@ -22,33 +22,34 @@ export default function Header() {
                     marginTop: [isDesktop ? '50px' : '0px'],
                 }}
             >
-                {isDesktop && (
-                    <Navbar
-                        flexDirection={'row'}
-                        alignItems={'center'}
-                        isDesktop={isDesktop}
-                        gap={'5vw'}
-                        marginTop={'0px'}
-                    />
-                )}
-                {isDesktop && (
-                    <Box
-                        p={'10px'}
-                        position={'relative'}
-                        cursor={'pointer'}
-                    >
-                        <Globe color={'black'} />
-                    </Box>
-                )}
-                {!isDesktop && (
-                    <LogoAccord
-                        color={'black'}
-                        isDesktop={isDesktop}
-                    />
-                )}
-                {!isDesktop && (
-                    <NavDrawerMenu />
-                )}
+                {isDesktop
+                    ?
+                    <>
+                        <Navbar
+                            flexDirection={'row'}
+                            alignItems={'center'}
+                            isDesktop={isDesktop}
+                            gap={'5vw'}
+                            marginTop={'0px'}
+                        />
+                        <Box
+                            p={'10px'}
+                            position={'relative'}
+                            cursor={'pointer'}
+                        >
+                            <Globe color={'black'} />
+                        </Box>
+                    </>
+
+                    :
+                    <>
+                        <LogoAccord
+                            color={'black'}
+                            isDesktop={isDesktop}
+                        />
+                        <NavDrawerMenu />
+                    </>
+                }
             </header>
         </>
     )
