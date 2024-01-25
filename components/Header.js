@@ -37,7 +37,10 @@ export default function Header() {
                             position={'relative'}
                             cursor={'pointer'}
                         >
-                            <Globe color={'black'} />
+                            <Globe
+                                color={'black'}
+                                isDesktop={isDesktop}
+                            />
                         </Box>
                     </>
 

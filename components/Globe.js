@@ -3,7 +3,7 @@ import blackGlobe from '../public/img/globe.png';
 import whiteGlobe from '../public/img/white-globe.png';
 
 
-export default function Globe({ color }) {
+export default function Globe({ color, isDesktop }) {
     return (
         <Image
             src={color === 'black' ? blackGlobe : whiteGlobe}
@@ -12,8 +12,8 @@ export default function Globe({ color }) {
             height={31.2}
             style={{
                 borderRadius: '10px',
-                width: 'auto',
-                height: 'auto',
+                width: [isDesktop ? '33px' : '28.8px'],
+                height: [isDesktop ? '31.2px' : '27.2px'],
                 objectFit: 'cover',
                 objectPosition: 'center',
             }}

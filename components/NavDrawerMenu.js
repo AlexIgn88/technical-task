@@ -84,8 +84,8 @@ export default function NavDrawerMenu() {
                         backgroundColor={'black'}
 
                         position={'absolute'}
-                        top={'90vh'}
-                        left={'40px'}
+                        top={'87vh'}
+                        left={'24px'}
                     >
                         <DrawerCloseButton
                             w={'38px'}
@@ -108,7 +108,10 @@ export default function NavDrawerMenu() {
                             left={'180px'}
                             cursor={'pointer'}
                         >
-                            <Globe color={'white'} />
+                            <Globe
+                                color={'white'}
+                                isDesktop={false}
+                            />
                         </Box>
                     </DrawerFooter>
                 </DrawerContent>
