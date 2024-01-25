@@ -1,8 +1,7 @@
 export const globalStyles = {
     'html, body': {
         height: '100%',
-        backgroundColor: 'black',
-        color: 'white',
+        backgroundColor: 'white',
         fontFamily: 'Montserrat, sans-serif',
         margin: '0px',
     },

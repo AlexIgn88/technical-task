@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Box, Button, Flex, Heading, Text, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, Grid, GridItem } from '@chakra-ui/react';
 import Image from 'next/image';
 import backgroundMain from '../public/img/machine.png';
 import backgroundAbout from '../public/img/car_interior.png';
@@ -8,6 +8,7 @@ import arrowLeft from '../public/img/arrow_left.png';
 import arrowRight from '../public/img/arrow_right.png';
 import carsData from '../data/carsData.js';
 import { useState } from 'react';
+import SiteButton from '../components/SiteButton';
 
 
 export default function Home() {
@@ -42,14 +43,7 @@ export default function Home() {
           >
             For the modern world, semantic analysis of external counteractions contributes to the preparation and implementation.
           </Text>
-          <Button
-            mt={'30px'}
-            colorScheme='gray'
-            w={'228px'}
-            h={'62px'}
-            borderRadius={'19px'}
-            cursor={'pointer'}
-          ></Button>
+          <SiteButton />
         </Box>
 
         <Box
@@ -61,7 +55,7 @@ export default function Home() {
             width={944}
             height={469}
             style={{
-              width: '45vw',
+              width: '100vw',
               height: 'auto',
               objectFit: 'cover',
               objectPosition: 'center',
@@ -69,28 +63,7 @@ export default function Home() {
               zIndex: '3',
             }}
           />
-          {/* <Box
-            position={'absolute'}
-            right={'120px'}
-            bottom={'400px'}
-            w="635px"
-            h="607px"
-            borderRadius="50%"
-            background={'radial-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.12))'}
-          >
-          </Box>
-          <Box
-            position={'absolute'}
-            right={'50px'}
-            bottom={'600px'}
-            w="424px"
-            h="405px"
-            borderRadius="50%"
-            background={'radial-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.12))'}
-          >
-          </Box> */}
         </Box>
-
       </Flex>
       <Box
         h={'110vh'}
@@ -103,9 +76,11 @@ export default function Home() {
           top={'350px'}
           right={'200px'}
           zIndex={'3'}
+          color={'white'}
         >
           <Heading
             as={'h1'}
+            fontSize={'40px'}
           >WHO WE ARE
           </Heading>
           <Text>
@@ -145,12 +120,14 @@ export default function Home() {
       >
         <Heading
           as={'h1'}
+          fontSize={'40px'}
           textAlign={'center'}
         >
           OUR FLEET
         </Heading>
         <Heading
           mt={'80px'}
+          fontSize={'24px'}
         >
           {carsData[currentCarIndex].carName}
         </Heading>
@@ -159,18 +136,24 @@ export default function Home() {
         >
           <Grid
             templateColumns="repeat(2, 1fr)"
-            gap={6}
+            alignContent={'space-evenly'}
           >
-            {flattenedArray.slice(2).map((item, i) => <GridItem key={i}>{item}</GridItem>)}
+            {flattenedArray.slice(2).map((item, i) =>
+              <GridItem
+                key={i}
+                fontWeight={(i % 2 === 0) ? 'bold' : 'normal'}
+              >
+                {item}
+              </GridItem>
+            )}
           </Grid>
-
           <Box>
             <Image
               src={backgroundOurFleet}
               alt='our fleet'
               style={{
-                width: '100%',
-                height: '100%',
+                width: '45vw',
+                height: 'auto',
                 objectFit: 'cover',
                 objectPosition: 'center',
               }}
@@ -180,13 +163,7 @@ export default function Home() {
         <Flex
           alignItems={'center'}
         >
-          <Button
-            colorScheme='gray'
-            w={'228px'}
-            h={'62px'}
-            borderRadius={'19px'}
-            cursor={'pointer'}
-          ></Button>
+          <SiteButton />
           <Box
             flexGrow='1'
             display={'flex'}

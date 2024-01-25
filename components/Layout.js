@@ -6,7 +6,9 @@ export default function Layout({ children }) {
 
     return <>
         <Header />
-        <main>
+        <main
+            style={{ fontSize: '18px' }}
+        >
             {children}
         </main>
         {/* <Footer /> */}

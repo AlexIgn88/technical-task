@@ -8,7 +8,6 @@ export default function Globe() {
         <Box
             p={'10px'}
             position={'relative'}
-            right={'5vw'}
             cursor={'pointer'}
         >
             <Image

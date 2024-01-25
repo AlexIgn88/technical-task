@@ -9,11 +9,11 @@ import pages from '../data/pagesData';
 import LogoAccord from '../components/LogoAccord';
 
 
-export default function Navbar() {
+export default function Navbar({ isDesktop }) {
 
     return (
         <nav style={{
-            width: '100%',
+            width: '80%',
         }}>
             <UnorderedList
                 listStyleType={'none'}
@@ -28,7 +28,6 @@ export default function Navbar() {
                             as={Link}
                             href={page.src}
                             className="link"
-                            color={'white'}
                             textDecoration={'none'}
                             _hover={{
                                 textDecoration: 'underline'
@@ -36,7 +35,7 @@ export default function Navbar() {
                         >
                             {
                                 page.name === 'Accord'
-                                    ? <LogoAccord />
+                                    ? <LogoAccord isDesktop={isDesktop} />
                                     : page.name
                             }
                         </Text>

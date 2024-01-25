@@ -1,7 +1,7 @@
 import Navbar from '../components/Navbar.js';
 import Globe from '../components/Globe.js';
 import LogoAccord from '../components/LogoAccord';
-import { useBreakpointValue } from '@chakra-ui/react';
+import { useBreakpointValue, Button, Box, } from '@chakra-ui/react';
 
 
 export default function Header() {
@@ -15,6 +15,7 @@ export default function Header() {
                     zIndex: '3',
                     display: 'flex',
                     justifyContent: 'center',
+                    alignItems: 'center',
                     position: 'relative',
                     padding: '10px',
                     marginTop: '50px',
@@ -22,10 +23,23 @@ export default function Header() {
             >
                 {/* <Navbar />
                 <Globe /> */}
-                {isDesktop && <Navbar />}
+                {isDesktop && <Navbar isDesktop={isDesktop} />}
                 {isDesktop && <Globe />}
-                {!isDesktop && <LogoAccord />}
-                {!isDesktop && <div>HAMBURGER</div>}
+                {!isDesktop && (
+                    <Box>
+                        <LogoAccord isDesktop={isDesktop} />
+                    </Box>)}
+                {!isDesktop && (
+                    <Button
+                        colorScheme='gray'
+                        position='absolute'
+                        right='4vw'
+                        width='30px'
+                        height='14px'
+                    >
+                        Gray
+                    </Button>
+                )}
             </header>
         </>
     )

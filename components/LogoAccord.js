@@ -2,7 +2,7 @@ import Image from 'next/image';
 import background from '../public/img/logo_accord.png';
 
 
-export default function LogoAccord() {
+export default function LogoAccord({ isDesktop }) {
 
     return (
         <Image
@@ -12,8 +12,8 @@ export default function LogoAccord() {
             height={27}
             style={{
                 borderRadius: '10px',
-                width: 'auto',
-                height: 'auto',
+                width: [isDesktop ? '235px' : '163px'],
+                height: [isDesktop ? '27px' : '19px'],
                 objectFit: 'cover',
                 objectPosition: 'center',
             }}
