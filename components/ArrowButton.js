@@ -6,7 +6,7 @@ import arrowLeftMobile from '../public/img/arrow_left_mobile.png';
 import arrowRightMobile from '../public/img/arrow_right_mobile.png';
 
 
-export default function ArrowButton({ direction, size }) {
+export default function ArrowButton({ direction, size, data, currentValue, changeValue }) {
 
     let arrowIco;
 
@@ -24,7 +24,12 @@ export default function ArrowButton({ direction, size }) {
 
     return (
         <IconButton
-            onClick={() => alert(direction)}
+            onClick={
+                () => direction === 'Left'
+                    ? previousValue(data, currentValue, changeValue)
+                    : nextValue(data, currentValue, changeValue)
+            }
+
             backgroundColor={'white'}
             _hover={{
                 backgroundColor: 'white',
@@ -40,4 +45,20 @@ export default function ArrowButton({ direction, size }) {
             }
         />
     )
+}
+
+function previousValue(data, currentValue, changeValue) {
+    let result;
+    currentValue !== 0
+        ? result = currentValue - 1
+        : result = data.length - 1
+    return changeValue(result)
+}
+
+function nextValue(data, currentValue, changeValue) {
+    let result;
+    currentValue !== data.length - 1
+        ? result = currentValue + 1
+        : result = 0
+    return changeValue(result)
 }

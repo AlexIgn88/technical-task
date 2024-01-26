@@ -1,6 +1,6 @@
 import { Box, Flex, Heading, Text, useBreakpointValue, useBreakpoint } from '@chakra-ui/react';
 import Image from 'next/image';
-import backgroundMain from '../public/img/machine.png';
+import backgroundMain from '../public/img/mercedes.png';
 import SiteButton from '../components/SiteButton';
 
 

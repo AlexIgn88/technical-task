@@ -1,6 +1,5 @@
 import { Box, Flex, Heading, Grid, GridItem, useBreakpointValue } from '@chakra-ui/react';
 import Image from 'next/image';
-import backgroundOurFleet from '../public/img/our_fleet.png';
 import carsData from '../data/carsData.js';
 import { useState } from 'react';
 import SiteButton from '../components/SiteButton';
@@ -17,11 +16,15 @@ export default function HomePageThirdSection() {
         flattenedArray = keyValuePairs.flat();
 
     return (
-        <Box
+        <Flex
             h={'100vh'}
             ml={'6vw'}
             mr={'6vw'}
             mt={isDesktop ? '50px' : '30px'}
+
+            flexDirection={'column'}
+            justifyContent={'space-between'}
+
         >
             <Heading
                 as={'h1'}
@@ -32,23 +35,26 @@ export default function HomePageThirdSection() {
             </Heading>
             {isDesktop && (
                 <Heading
-                    mt={'50px'}
+                    flexGrow={'1'}
                     fontSize={'24px'}
                 >
-                    {carsData[currentCarIndex].carName}
+                    {carsData[currentCarIndex].type}
                 </Heading>)}
             <Flex
+                flexGrow={'1'}
                 mt={isDesktop ? '50px' : '20px'}
                 flexDirection={isDesktop ? 'row' : 'column'}
                 alignItems={isDesktop ? 'normal' : 'center'}
             >
                 <Grid
+                    flexGrow={'1'}
                     order={isDesktop ? '1' : '3'}
                     templateColumns="repeat(2, 1fr)"
                     alignContent={'space-evenly'}
-                    gap={isDesktop ? '0px' : '20px'}
+                    w={isDesktop ? '622px' : '346px'}
+                    h={isDesktop ? '412px' : '444px'}
                 >
-                    {flattenedArray.slice(2).map((item, i) =>
+                    {flattenedArray.slice(4).map((item, i) =>
                         <GridItem
                             key={i}
                             fontWeight={(i % 2 === 0) ? 'bold' : 'normal'}
@@ -63,25 +69,39 @@ export default function HomePageThirdSection() {
                         flexDirection={'row'}
                         alignItems={'center'}
                     >
-                        <ArrowButton direction={'Left'} size={isDesktop} />
+                        <ArrowButton
+                            direction={'Left'}
+                            size={isDesktop}
+                            data={carsData}
+                            currentValue={currentCarIndex}
+                            changeValue={changeCarDetailsIndex}
+                        />
                         <Heading
                             mt={'20px'}
                             fontSize={'18px'}
                             mb={'20px'}
                         >
-                            {carsData[currentCarIndex].carName}
+                            {carsData[currentCarIndex].type}
                         </Heading>
-                        <ArrowButton direction={'right'} size={isDesktop} />
+                        <ArrowButton
+                            direction={'right'}
+                            size={isDesktop}
+                            data={carsData}
+                            currentValue={currentCarIndex}
+                            changeValue={changeCarDetailsIndex}
+                        />
                     </Flex>)}
                 <Box
                     order={isDesktop ? '2' : '1'}
                 >
                     <Image
-                        src={backgroundOurFleet}
+                        src={carsData[currentCarIndex].picture}
                         alt='our fleet'
+                        width={717}
+                        height={538}
                         style={{
-                            width: '45vw',
-                            height: 'auto',
+                            width: [isDesktop ? '45vw' : 'auto'],
+                            height: [isDesktop ? 'auto' : '180px'],
                             objectFit: 'cover',
                             objectPosition: 'center',
                         }}
@@ -99,8 +119,20 @@ export default function HomePageThirdSection() {
                         justifyContent={'center'}
                         gap={'10vw'}
                     >
-                        <ArrowButton direction={'Left'} size={isDesktop} />
-                        <ArrowButton direction={'right'} size={isDesktop} />
+                        <ArrowButton
+                            direction={'Left'}
+                            size={isDesktop}
+                            data={carsData}
+                            currentValue={currentCarIndex}
+                            changeValue={changeCarDetailsIndex}
+                        />
+                        <ArrowButton
+                            direction={'right'}
+                            size={isDesktop}
+                            data={carsData}
+                            currentValue={currentCarIndex}
+                            changeValue={changeCarDetailsIndex}
+                        />
                     </Box>
                 </Flex>
                 : <Flex
@@ -110,6 +142,6 @@ export default function HomePageThirdSection() {
                     <SiteButton width={isDesktop ? '228px' : '166px'} />
                 </Flex>
             }
-        </Box>
+        </Flex>
     )
 }
