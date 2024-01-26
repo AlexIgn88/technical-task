@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, useBreakpointValue, useBreakpoint } from '@chakra-ui/react';
 import Image from 'next/image';
 import backgroundMain from '../public/img/machine.png';
 import SiteButton from '../components/SiteButton';
@@ -6,7 +6,7 @@ import SiteButton from '../components/SiteButton';
 
 export default function HomePageFirstSection() {
 
-    const isDesktop = useBreakpointValue({ base: false, md: true });
+    const isDesktop = useBreakpointValue({ base: true, s: false, md: true }); // выше 768px - десктопное разрешение экрана
 
     return (
         <Flex

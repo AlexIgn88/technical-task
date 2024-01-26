@@ -7,7 +7,7 @@ import NavDrawerMenu from '../components/NavDrawerMenu.js';
 
 export default function Header() {
 
-    const isDesktop = useBreakpointValue({ base: false, md: true });  // выше 768px - десктопное разрешение экрана
+    const isDesktop = useBreakpointValue({ base: true, s: false, md: true }); // выше 768px - десктопное разрешение экрана
 
     return (
         <>
