@@ -30,12 +30,12 @@ export default function HomePageThirdSection() {
                 as={'h1'}
                 fontSize={isDesktop ? '40px' : '25px'}
                 textAlign={'center'}
+                flexGrow={'1'}
             >
                 OUR FLEET
             </Heading>
             {isDesktop && (
                 <Heading
-                    flexGrow={'1'}
                     fontSize={'24px'}
                 >
                     {carsData[currentCarIndex].type}
@@ -47,11 +47,14 @@ export default function HomePageThirdSection() {
                 alignItems={isDesktop ? 'normal' : 'center'}
             >
                 <Grid
-                    flexGrow={'1'}
-                    order={isDesktop ? '1' : '3'}
                     templateColumns="repeat(2, 1fr)"
                     alignContent={'space-evenly'}
-                    w={isDesktop ? '622px' : '346px'}
+                    gap={'20px'}
+                    mt={'70px'}
+                    mb={'70px'}
+                    flexGrow={'1'}
+                    order={isDesktop ? '1' : '3'}
+                    w={'auto'}
                     h={isDesktop ? '412px' : '444px'}
                 >
                     {flattenedArray.slice(4).map((item, i) =>
@@ -68,6 +71,8 @@ export default function HomePageThirdSection() {
                         order={'2'}
                         flexDirection={'row'}
                         alignItems={'center'}
+                        w={'270.94px'}
+                        justifyContent={'space-evenly'}
                     >
                         <ArrowButton
                             direction={'Left'}
@@ -80,6 +85,9 @@ export default function HomePageThirdSection() {
                             mt={'20px'}
                             fontSize={'18px'}
                             mb={'20px'}
+                            flexGrow={'1'}
+                            display={'flex'}
+                            justifyContent={'center'}
                         >
                             {carsData[currentCarIndex].type}
                         </Heading>
@@ -93,6 +101,8 @@ export default function HomePageThirdSection() {
                     </Flex>)}
                 <Box
                     order={isDesktop ? '2' : '1'}
+                    w={{ base: '60vw', md: '40vw', sm: '35vw' }}
+                    h={{ base: '30vh', md: '25vh', sm: '20vh' }}
                 >
                     <Image
                         src={carsData[currentCarIndex].picture}
@@ -100,8 +110,6 @@ export default function HomePageThirdSection() {
                         width={717}
                         height={538}
                         style={{
-                            width: [isDesktop ? '45vw' : 'auto'],
-                            height: [isDesktop ? 'auto' : '180px'],
                             objectFit: 'cover',
                             objectPosition: 'center',
                         }}
@@ -111,13 +119,20 @@ export default function HomePageThirdSection() {
             {isDesktop
                 ? <Flex
                     alignItems={'center'}
+                    position={'relative'}
                 >
-                    <SiteButton width={isDesktop ? '228px' : '166px'} />
                     <Box
+                        position={'relative'}
+                        right={'5px'}
+                    >
+                        <SiteButton width={isDesktop ? '228px' : '166px'} />
+                    </Box>
+                    <Flex
                         flexGrow='1'
-                        display={'flex'}
                         justifyContent={'center'}
                         gap={'10vw'}
+                        position={'absolute'}
+                        left={'60vw'}
                     >
                         <ArrowButton
                             direction={'Left'}
@@ -133,7 +148,7 @@ export default function HomePageThirdSection() {
                             currentValue={currentCarIndex}
                             changeValue={changeCarDetailsIndex}
                         />
-                    </Box>
+                    </Flex>
                 </Flex>
                 : <Flex
                     flexDirection={'row'}

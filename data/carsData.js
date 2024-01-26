@@ -16,7 +16,7 @@ const carsData = [
     {
         type: "Premium Class",
         picture: "/img/mercedes.png",
-        Model: "MS Sprinter",
+        Model: "Mercedes E-Class / S-Class or similar",
         "Model year": "2022 or newer",
         Seats: "3",
         "Driver services": "Included",
