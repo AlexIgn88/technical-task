@@ -17,7 +17,7 @@ const carsData = [
         type: "Premium Class",
         picture: "/img/mercedes.png",
         Model: "Mercedes E-Class / S-Class or similar",
-        "Model year": "2022 or newer",
+        "Model year": "2023 or newer",
         Seats: "3",
         "Driver services": "Included",
         "English speaking host": "N/A",
@@ -25,7 +25,7 @@ const carsData = [
         "Contingency vehicle": "Included",
         Insurance: "Included",
         "Airport parking": "Included",
-        "Tolls and city parking": "Not included",
+        "Tolls and city parking": "Included",
     },
 ];
 
